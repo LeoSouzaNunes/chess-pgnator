@@ -1,12 +1,12 @@
-import { Container, TryNowButton, LogoTitle } from "./styles";
+import { Container } from "./styles";
+import LogoTitle from "../LogoTitle";
+import TryNowButton from "../TryNowButton";
 
 export default function Header() {
     return (
         <Container>
-            <LogoTitle>
-                Chess<b>PGN</b>ator
-            </LogoTitle>
-            <TryNowButton>Try now</TryNowButton>
+            <LogoTitle />
+            <TryNowButton />
         </Container>
     );
 }

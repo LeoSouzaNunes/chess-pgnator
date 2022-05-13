@@ -1,15 +1,8 @@
-import {
-    HomeContainer,
-    MainContentContainer,
-    MainSection,
-    TryNowButton,
-} from "./styles";
+import { HomeContainer, MainContentContainer, MainSection } from "./styles";
 import { Header } from "../../components";
-import { useNavigate } from "react-router-dom";
+import TryNowButton from "../../components/TryNowButton";
 
 export default function Home() {
-    const navigate = useNavigate();
-
     return (
         <HomeContainer>
             <Header />
@@ -27,17 +20,11 @@ export default function Home() {
                         with chess-pgnator a free PGN editor where you can
                         create
                         <br />
-                        your chess studies!
+                        your chess studies.
                         <br />
                     </p>
                 </MainSection>
-                <TryNowButton
-                    onClick={() => {
-                        navigate("/pgn-editor");
-                    }}
-                >
-                    Try now
-                </TryNowButton>
+                <TryNowButton />
             </MainContentContainer>
         </HomeContainer>
     );
