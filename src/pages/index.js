@@ -1,3 +1,4 @@
 import Home from "./home";
+import PgnEditor from "./PgnEditor";
 
-export { Home };
+export { Home, PgnEditor };

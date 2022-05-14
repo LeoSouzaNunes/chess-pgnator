@@ -6,7 +6,7 @@ const Button = styled.button`
     height: 30px;
     width: 120px;
 
-    display: flex;
+    display: ${(props) => (props.show ? "none" : "flex")};
     justify-content: center;
     align-items: center;
 
