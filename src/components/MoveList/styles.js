@@ -6,12 +6,11 @@ const ListContainer = styled.ul`
     gap: 5px;
 
     width: 90%;
-    min-height: 200px;
-    max-height: 250px;
-    margin-top: 20px;
-    padding-top: 10px;
+    height: 400px;
+    padding-top: 15px;
     background-color: #2d2424;
 
+    overflow-y: scroll;
     border-radius: 3px;
 `;
 
@@ -27,7 +26,7 @@ const Move = styled.li`
 
     p {
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: #f1e4d3;
     }
 `;
@@ -44,7 +43,7 @@ const ControlPanel = styled.li`
 `;
 
 const styles = {
-    color: "#000",
+    color: "#f1e4d3",
     transition: ".3s",
     "&:hover": {
         cursor: "pointer",

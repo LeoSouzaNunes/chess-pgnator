@@ -1,15 +1,25 @@
-import { Container, EditorContainer, SettingsContainer } from "./styles";
+import {
+    ButtonsContainer,
+    Container,
+    EditorContainer,
+    SettingsContainer,
+} from "./styles";
 import {
     Header,
     ChessBoardComponent,
     TextArea,
     TurnContainer,
     MoveList,
+    HeadersButton,
+    PgnButton,
+    HeadersForm,
+    MoveListButton,
 } from "../../components";
 import { useState } from "react";
 
 export default function PgnEditor() {
     const [turn, setTurn] = useState("w");
+    const [showHeadersForm, setShowHeadersForm] = useState(false);
 
     return (
         <Container>
@@ -21,7 +31,16 @@ export default function PgnEditor() {
                 </div>
                 <SettingsContainer>
                     <TurnContainer turn={turn} />
-                    <MoveList />
+                    {showHeadersForm ? <HeadersForm /> : <MoveList />}
+                    <ButtonsContainer>
+                        {showHeadersForm ? (
+                            <MoveListButton show={setShowHeadersForm} />
+                        ) : (
+                            <HeadersButton show={setShowHeadersForm} />
+                        )}
+
+                        <PgnButton />
+                    </ButtonsContainer>
                 </SettingsContainer>
             </EditorContainer>
         </Container>

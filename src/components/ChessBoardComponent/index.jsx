@@ -5,7 +5,6 @@ import { style } from "./styles";
 
 export default function ChessBoardComponent({ setTurn }) {
     const [game, setGame] = useState(new Chess());
-    setTurn(game.turn());
     function safeGameMutate(modify) {
         setGame((g) => {
             const actualPosition = { ...g };
@@ -27,6 +26,7 @@ export default function ChessBoardComponent({ setTurn }) {
             return false;
         }
 
+        setTurn(game.turn());
         return true;
     }
 

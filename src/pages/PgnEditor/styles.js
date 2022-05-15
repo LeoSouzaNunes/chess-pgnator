@@ -29,4 +29,14 @@ const SettingsContainer = styled.div`
     overflow: hidden;
 `;
 
-export { Container, EditorContainer, SettingsContainer };
+const ButtonsContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 15px 10px;
+    margin-top: auto;
+    width: 100%;
+`;
+
+export { Container, EditorContainer, SettingsContainer, ButtonsContainer };
