@@ -3,7 +3,13 @@ import { Chess } from "chess.js";
 import { useState } from "react";
 import { style } from "./styles";
 
-export default function ChessBoardComponent({ setTurn }) {
+export default function ChessBoardComponent({
+    setTurn,
+    setMoveHistory,
+    setComment,
+    comment,
+    boardOrientation,
+}) {
     const [game, setGame] = useState(new Chess());
     function safeGameMutate(modify) {
         setGame((g) => {
@@ -15,6 +21,9 @@ export default function ChessBoardComponent({ setTurn }) {
 
     function handlePieceDrop(sourceSquare, targetSquare, piece) {
         let move = null;
+        if (comment) {
+            game.set_comment(comment);
+        }
         safeGameMutate((game) => {
             move = game.move({
                 from: sourceSquare,
@@ -25,7 +34,8 @@ export default function ChessBoardComponent({ setTurn }) {
         if (!move) {
             return false;
         }
-
+        setMoveHistory(game.history());
+        setComment("");
         setTurn(game.turn());
         return true;
     }
@@ -51,6 +61,7 @@ export default function ChessBoardComponent({ setTurn }) {
         const pgnOutput = game.pgn();
 
         const output = pgnOutput + copyright;
+        console.log(output);
     }
 
     return (
@@ -59,6 +70,7 @@ export default function ChessBoardComponent({ setTurn }) {
             boardWidth={500}
             customBoardStyle={style}
             onPieceDrop={handlePieceDrop}
+            boardOrientation={boardOrientation}
         />
     );
 }
