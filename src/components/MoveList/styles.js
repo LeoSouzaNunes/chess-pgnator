@@ -1,17 +1,30 @@
 import styled from "styled-components";
 
-const ListContainer = styled.ul`
+const ListContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
+
+    position: relative;
 
     width: 90%;
     height: 400px;
     padding-top: 15px;
     background-color: #2d2424;
 
-    overflow-y: scroll;
     border-radius: 3px;
+`;
+
+const MovesContainer = styled.ul`
+    width: 100%;
+    max-height: 340px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    position: relative;
+    overflow: scroll;
 `;
 
 const Move = styled.li`
@@ -24,9 +37,16 @@ const Move = styled.li`
 
     padding-bottom: 2px;
 
-    p {
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 25px;
+
         font-weight: 700;
         font-size: 1.1rem;
+        text-align: center;
         color: #f1e4d3;
     }
 `;
@@ -39,7 +59,11 @@ const ControlPanel = styled.li`
     justify-content: space-evenly;
     align-items: center;
 
-    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    background-color: #2d2424;
 `;
 
 const styles = {
@@ -52,4 +76,4 @@ const styles = {
     },
 };
 
-export { ListContainer, Move, ControlPanel, styles };
+export { ListContainer, Move, ControlPanel, styles, MovesContainer };
