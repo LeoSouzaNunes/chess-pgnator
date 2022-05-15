@@ -2,11 +2,11 @@ import { Container } from "./styles";
 import LogoTitle from "../LogoTitle";
 import TryNowButton from "../TryNowButton";
 
-export default function Header() {
+export default function Header({ content, none }) {
     return (
-        <Container>
+        <Container justify={content}>
             <LogoTitle />
-            <TryNowButton />
+            <TryNowButton none={none} />
         </Container>
     );
 }
