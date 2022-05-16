@@ -23,6 +23,15 @@ export default function PgnEditor() {
     const [showHeadersForm, setShowHeadersForm] = useState(false);
     const [moveHistory, setMoveHistory] = useState([]);
     const [boardOrientation, setBoardOrientation] = useState("white");
+    const [headersData, setHeadersData] = useState({
+        event: "",
+        site: "",
+        date: "",
+        round: "",
+        white: "",
+        black: "",
+        result: "",
+    });
 
     return (
         <Container>
@@ -35,13 +44,17 @@ export default function PgnEditor() {
                         setComment={setComment}
                         setMoveHistory={setMoveHistory}
                         boardOrientation={boardOrientation}
+                        headersData={headersData}
                     />
                     <TextArea setComment={setComment} comment={comment} />
                 </div>
                 <SettingsContainer>
                     <TurnContainer turn={turn} />
                     {showHeadersForm ? (
-                        <HeadersForm />
+                        <HeadersForm
+                            headersData={headersData}
+                            setHeadersData={setHeadersData}
+                        />
                     ) : (
                         <MoveList
                             moveHistory={moveHistory}
