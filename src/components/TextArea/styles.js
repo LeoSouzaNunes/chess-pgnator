@@ -15,6 +15,7 @@ const Text = styled.textarea`
     border-style: none;
 
     ::placeholder {
+        font-weight: 700;
         color: #2d2424;
     }
 

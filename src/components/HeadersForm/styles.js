@@ -50,5 +50,12 @@ const SelectResult = styled.select`
         border: 1.5px solid #e85640;
     }
 `;
+const DateContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-export { Container, Input, SelectResult };
+    gap: 5px;
+`;
+
+export { Container, Input, SelectResult, DateContainer };

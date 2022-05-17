@@ -9,6 +9,9 @@ export default function ChessBoardComponent({
     setComment,
     comment,
     boardOrientation,
+    headersData,
+    getPgnOutput,
+    setOutputData,
 }) {
     const [game, setGame] = useState(new Chess());
     function safeGameMutate(modify) {
@@ -28,6 +31,7 @@ export default function ChessBoardComponent({
             move = game.move({
                 from: sourceSquare,
                 to: targetSquare,
+                promotion: "q",
             });
         });
 
@@ -40,29 +44,33 @@ export default function ChessBoardComponent({
         return true;
     }
 
-    function returnFormattedOutput() {
+    function returnFormattedOutput(headersData) {
+        const headers = createHeadersDefaultValue({ ...headersData });
         game.header(
             "Event",
-            "",
+            headers.event,
             "Site",
-            "",
+            headers.site,
             "Date",
-            "",
+            headers.date,
             "Round",
-            "",
+            headers.round,
             "White",
-            "",
+            headers.white,
             "Black",
-            "",
+            headers.black,
             "Result",
-            ""
+            headers.result
         );
         const copyright = "\n%Created by ChessPGNator, a free PGN editor";
         const pgnOutput = game.pgn();
 
         const output = pgnOutput + copyright;
-        console.log(output);
+        console.log("On ChessBoard", output);
+        setOutputData(output);
     }
+
+    if (getPgnOutput) returnFormattedOutput(headersData);
 
     return (
         <Chessboard
@@ -73,4 +81,20 @@ export default function ChessBoardComponent({
             boardOrientation={boardOrientation}
         />
     );
+}
+
+function createHeadersDefaultValue(headersData) {
+    const year = headersData.date_year || "????";
+    const month = headersData.date_month || "??";
+    const day = headersData.date_day || "??";
+
+    return {
+        event: headersData.event || "?",
+        site: headersData.site || "?",
+        date: `${year}.${month}.${day}`,
+        round: headersData.round || "?",
+        white: headersData.white || "?",
+        black: headersData.black || "?",
+        result: headersData.result || "*",
+    };
 }

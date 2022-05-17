@@ -10,10 +10,9 @@ import {
     TextArea,
     TurnContainer,
     MoveList,
-    HeadersButton,
-    PgnButton,
     HeadersForm,
-    MoveListButton,
+    PgnOutputComponent,
+    ButtonComponent,
 } from "../../components";
 import { useState } from "react";
 
@@ -26,27 +25,43 @@ export default function PgnEditor() {
     const [headersData, setHeadersData] = useState({
         event: "",
         site: "",
-        date: "",
+        date_day: "",
+        date_year: "",
+        date_month: "",
         round: "",
         white: "",
         black: "",
         result: "",
     });
+    const [getPgnOutput, setGetPgnOutput] = useState(false);
+    const [outputData, setOutputData] = useState("");
 
     return (
         <Container>
             <Header content={"center"} none={true} />
             <EditorContainer>
                 <div>
-                    <ChessBoardComponent
-                        setTurn={setTurn}
-                        comment={comment}
-                        setComment={setComment}
-                        setMoveHistory={setMoveHistory}
-                        boardOrientation={boardOrientation}
-                        headersData={headersData}
-                    />
-                    <TextArea setComment={setComment} comment={comment} />
+                    {outputData && getPgnOutput ? (
+                        <PgnOutputComponent outputData={outputData} />
+                    ) : (
+                        <>
+                            <ChessBoardComponent
+                                setTurn={setTurn}
+                                comment={comment}
+                                setComment={setComment}
+                                setMoveHistory={setMoveHistory}
+                                boardOrientation={boardOrientation}
+                                headersData={headersData}
+                                getPgnOutput={getPgnOutput}
+                                setOutputData={setOutputData}
+                            />
+                            <TextArea
+                                setComment={setComment}
+                                comment={comment}
+                                disable={getPgnOutput}
+                            />
+                        </>
+                    )}
                 </div>
                 <SettingsContainer>
                     <TurnContainer turn={turn} />
@@ -54,6 +69,7 @@ export default function PgnEditor() {
                         <HeadersForm
                             headersData={headersData}
                             setHeadersData={setHeadersData}
+                            disable={getPgnOutput}
                         />
                     ) : (
                         <MoveList
@@ -64,12 +80,32 @@ export default function PgnEditor() {
                     )}
                     <ButtonsContainer>
                         {showHeadersForm ? (
-                            <MoveListButton show={setShowHeadersForm} />
+                            <ButtonComponent
+                                setValue={setShowHeadersForm}
+                                value={false}
+                                text="Move list"
+                            />
                         ) : (
-                            <HeadersButton show={setShowHeadersForm} />
+                            <ButtonComponent
+                                setValue={setShowHeadersForm}
+                                value={true}
+                                text="Game info"
+                            />
                         )}
 
-                        <PgnButton />
+                        {getPgnOutput ? (
+                            <ButtonComponent
+                                setValue={setGetPgnOutput}
+                                value={false}
+                                text="Chessboard"
+                            />
+                        ) : (
+                            <ButtonComponent
+                                setValue={setGetPgnOutput}
+                                value={true}
+                                text="PGN"
+                            />
+                        )}
                     </ButtonsContainer>
                 </SettingsContainer>
             </EditorContainer>

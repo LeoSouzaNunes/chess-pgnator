@@ -1,6 +1,6 @@
 import { Text } from "./styles";
 
-export default function TextArea({ setComment, comment }) {
+export default function TextArea({ setComment, comment, disable }) {
     function handleChange(e) {
         const { value } = e.target;
         setComment(value);
@@ -11,6 +11,7 @@ export default function TextArea({ setComment, comment }) {
             value={comment}
             onChange={handleChange}
             placeholder="comment/annotation"
+            disabled={disable}
         ></Text>
     );
 }

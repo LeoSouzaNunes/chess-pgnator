@@ -35,7 +35,6 @@ const ButtonsContainer = styled.div`
     align-items: center;
 
     padding: 15px 10px;
-    margin-top: auto;
     width: 100%;
 `;
 

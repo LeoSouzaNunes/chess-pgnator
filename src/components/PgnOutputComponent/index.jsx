@@ -1,0 +1,31 @@
+import {
+    PgnOutputContainer,
+    InputReadOnly,
+    ButtonsContainer,
+    Button,
+} from "./styles";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useState } from "react";
+
+export default function PgnOutputComponent({ outputData }) {
+    const [copied, setCopied] = useState(false);
+    console.log(outputData);
+
+    return (
+        <PgnOutputContainer>
+            <h1>Output</h1>
+            <InputReadOnly type="text" value={outputData} readOnly />
+            <ButtonsContainer>
+                <CopyToClipboard
+                    text={outputData}
+                    onCopy={() => {
+                        setCopied(true);
+                    }}
+                >
+                    <Button>{!copied ? "Copy" : "Copied!"}</Button>
+                </CopyToClipboard>
+                <Button>Download</Button>
+            </ButtonsContainer>
+        </PgnOutputContainer>
+    );
+}

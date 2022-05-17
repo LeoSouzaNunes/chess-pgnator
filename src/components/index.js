@@ -5,10 +5,9 @@ import ChessBoardComponent from "./ChessBoardComponent";
 import TextArea from "./TextArea";
 import TurnContainer from "./TurnContainer";
 import MoveList from "./MoveList";
-import HeadersButton from "./HeadersButton";
-import PgnButton from "./PgnButton";
 import HeadersForm from "./HeadersForm";
-import MoveListButton from "./MoveListButton";
+import PgnOutputComponent from "./PgnOutputComponent";
+import ButtonComponent from "./ButtonComponent";
 
 export {
     GlobalStyle,
@@ -18,8 +17,7 @@ export {
     TextArea,
     TurnContainer,
     MoveList,
-    HeadersButton,
-    PgnButton,
     HeadersForm,
-    MoveListButton,
+    PgnOutputComponent,
+    ButtonComponent,
 };
