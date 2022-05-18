@@ -10,15 +10,45 @@ import FastForwardRoundedIcon from "@mui/icons-material/FastForwardRounded";
 import SkipPreviousRoundedIcon from "@mui/icons-material/SkipPreviousRounded";
 import SkipNextRoundedIcon from "@mui/icons-material/SkipNextRounded";
 import FlipCameraAndroidRoundedIcon from "@mui/icons-material/FlipCameraAndroidRounded";
+import { useEffect, useState } from "react";
 
 export default function MoveList({
-    moveHistory,
     setBoardOrientation,
     boardOrientation,
+    setMoveIndex,
+    moveIndex,
+    moveList,
 }) {
+    const [isAtStart, setIsAtStart] = useState(false);
+    const [isAtEnd, setIsAtEnd] = useState(false);
     const actualOrientation = boardOrientation === "white" ? "black" : "white";
-    const moves = formatMoveList(moveHistory);
+    const moves = formatMoveList(moveList);
 
+    useEffect(() => {
+        if (moveIndex === 0 && moveList.length > 1) {
+            setIsAtStart(true);
+            setIsAtEnd(false);
+        } else if (moveIndex === moveList.length - 1 && moveList.length > 1) {
+            setIsAtEnd(true);
+            setIsAtStart(false);
+        } else if (moveList.length === 1) {
+            setIsAtStart(true);
+            setIsAtEnd(true);
+        } else {
+            setIsAtEnd(false);
+            setIsAtStart(false);
+        }
+    }, [moveIndex]);
+
+    function moveOneByOneBackwards() {
+        if (isAtStart) return;
+        setMoveIndex(moveIndex - 1);
+    }
+
+    function moveOneByOneForwards() {
+        if (isAtEnd) return;
+        setMoveIndex(moveIndex + 1);
+    }
     return (
         <ListContainer>
             <MovesContainer>
@@ -31,16 +61,34 @@ export default function MoveList({
                 ))}
             </MovesContainer>
             <ControlPanel>
-                <FastRewindRoundedIcon sx={styles} />
-                <SkipPreviousRoundedIcon sx={styles} />
+                <FastRewindRoundedIcon
+                    onClick={() => {
+                        setMoveIndex(0);
+                    }}
+                    sx={styles}
+                    disabled={isAtStart}
+                />
+                <SkipPreviousRoundedIcon
+                    onClick={moveOneByOneBackwards}
+                    sx={styles}
+                />
                 <FlipCameraAndroidRoundedIcon
                     sx={styles}
                     onClick={() => {
                         setBoardOrientation(actualOrientation);
                     }}
                 />
-                <SkipNextRoundedIcon sx={styles} />
-                <FastForwardRoundedIcon sx={styles} />
+                <SkipNextRoundedIcon
+                    onClick={moveOneByOneForwards}
+                    sx={styles}
+                />
+                <FastForwardRoundedIcon
+                    onClick={() => {
+                        setMoveIndex(moveList.length - 1);
+                    }}
+                    sx={styles}
+                    disabled={isAtEnd}
+                />
             </ControlPanel>
         </ListContainer>
     );
@@ -48,9 +96,9 @@ export default function MoveList({
 
 function formatMoveList(moves) {
     let formattedMoveList = [];
-    for (let i = 0; i < moves.length; i += 2) {
-        const wMove = moves[i];
-        const bMove = moves[i + 1];
+    for (let i = 1; i < moves.length; i += 2) {
+        const wMove = moves[i].move;
+        const bMove = moves[i + 1]?.move;
         formattedMoveList.push({ w: wMove, b: bMove });
     }
     return formattedMoveList;

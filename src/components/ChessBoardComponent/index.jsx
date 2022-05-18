@@ -5,10 +5,13 @@ export default function ChessBoardComponent({
     game,
     setGame,
     setTurn,
-    setMoveHistory,
     setComment,
     comment,
     boardOrientation,
+    moveList,
+    setMoveList,
+    moveIndex,
+    setMoveIndex,
 }) {
     function safeGameMutate(modify) {
         setGame((g) => {
@@ -23,6 +26,9 @@ export default function ChessBoardComponent({
         if (comment) {
             game.set_comment(comment);
         }
+        if (moveIndex !== moveList.length - 1) {
+            return false;
+        }
         safeGameMutate((game) => {
             move = game.move({
                 from: sourceSquare,
@@ -34,14 +40,17 @@ export default function ChessBoardComponent({
         if (!move) {
             return false;
         }
-        setMoveHistory(game.history());
+        const lastMove = game.history().pop();
+        const fen = game.fen();
+        setMoveList([...moveList, { move: lastMove, fen }]);
+        setMoveIndex(moveIndex + 1);
         setComment("");
         setTurn(game.turn());
         return true;
     }
     return (
         <Chessboard
-            position={game.fen()}
+            position={moveList[moveIndex].fen}
             boardWidth={500}
             customBoardStyle={style}
             onPieceDrop={handlePieceDrop}
