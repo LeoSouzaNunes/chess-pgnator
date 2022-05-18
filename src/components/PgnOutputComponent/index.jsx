@@ -9,7 +9,6 @@ import { useState } from "react";
 
 export default function PgnOutputComponent({ outputData }) {
     const [copied, setCopied] = useState(false);
-    console.log(outputData);
 
     return (
         <PgnOutputContainer>
@@ -24,7 +23,15 @@ export default function PgnOutputComponent({ outputData }) {
                 >
                     <Button>{!copied ? "Copy" : "Copied!"}</Button>
                 </CopyToClipboard>
-                <Button>Download</Button>
+                <a
+                    href={
+                        "data:application/vnd.chess-pgn," +
+                        encodeURIComponent(outputData)
+                    }
+                    download={`chesspgnator_${Date.now()}.pgn`}
+                >
+                    <Button>Download</Button>
+                </a>
             </ButtonsContainer>
         </PgnOutputContainer>
     );

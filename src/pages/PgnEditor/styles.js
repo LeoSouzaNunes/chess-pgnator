@@ -18,6 +18,7 @@ const EditorContainer = styled.div`
 
 const SettingsContainer = styled.div`
     width: 30%;
+    height: 565px;
 
     display: flex;
     flex-direction: column;
@@ -36,6 +37,7 @@ const ButtonsContainer = styled.div`
 
     padding: 15px 10px;
     width: 100%;
+    margin-top: auto;
 `;
 
 export { Container, EditorContainer, SettingsContainer, ButtonsContainer };

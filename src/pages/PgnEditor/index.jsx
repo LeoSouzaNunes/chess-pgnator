@@ -14,9 +14,11 @@ import {
     PgnOutputComponent,
     ButtonComponent,
 } from "../../components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Chess } from "chess.js";
 
 export default function PgnEditor() {
+    const [game, setGame] = useState(new Chess());
     const [turn, setTurn] = useState("w");
     const [comment, setComment] = useState("");
     const [showHeadersForm, setShowHeadersForm] = useState(false);
@@ -36,6 +38,36 @@ export default function PgnEditor() {
     const [getPgnOutput, setGetPgnOutput] = useState(false);
     const [outputData, setOutputData] = useState("");
 
+    function returnFormattedOutput(headersData) {
+        const headers = createHeadersDefaultValue({ ...headersData });
+        game.header(
+            "Event",
+            headers.event,
+            "Site",
+            headers.site,
+            "Date",
+            headers.date,
+            "Round",
+            headers.round,
+            "White",
+            headers.white,
+            "Black",
+            headers.black,
+            "Result",
+            headers.result
+        );
+        const copyright = "\n%Created by ChessPGNator, a free PGN editor";
+        const pgnOutput = game.pgn();
+
+        const output = pgnOutput + copyright;
+
+        setOutputData(output);
+    }
+
+    useEffect(() => {
+        returnFormattedOutput(headersData);
+    }, [getPgnOutput]);
+
     return (
         <Container>
             <Header content={"center"} none={true} />
@@ -46,14 +78,13 @@ export default function PgnEditor() {
                     ) : (
                         <>
                             <ChessBoardComponent
+                                game={game}
+                                setGame={setGame}
                                 setTurn={setTurn}
                                 comment={comment}
                                 setComment={setComment}
                                 setMoveHistory={setMoveHistory}
                                 boardOrientation={boardOrientation}
-                                headersData={headersData}
-                                getPgnOutput={getPgnOutput}
-                                setOutputData={setOutputData}
                             />
                             <TextArea
                                 setComment={setComment}
@@ -111,4 +142,20 @@ export default function PgnEditor() {
             </EditorContainer>
         </Container>
     );
+}
+
+function createHeadersDefaultValue(headersData) {
+    const year = headersData.date_year || "????";
+    const month = headersData.date_month || "??";
+    const day = headersData.date_day || "??";
+
+    return {
+        event: headersData.event || "?",
+        site: headersData.site || "?",
+        date: `${year}.${month}.${day}`,
+        round: headersData.round || "?",
+        white: headersData.white || "?",
+        black: headersData.black || "?",
+        result: headersData.result || "*",
+    };
 }

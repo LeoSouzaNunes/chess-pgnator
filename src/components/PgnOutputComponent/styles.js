@@ -53,11 +53,15 @@ const ButtonsContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
 
-    gap: 15px;
+    gap: 10px;
 
     padding: 10px 5px;
     width: 100%;
     margin-top: auto;
+
+    a {
+        text-decoration: none;
+    }
 `;
 
 const Button = styled.button`
