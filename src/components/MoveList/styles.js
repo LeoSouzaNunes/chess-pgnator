@@ -17,7 +17,7 @@ const ListContainer = styled.div`
 
 const MovesContainer = styled.ul`
     width: 100%;
-    max-height: 340px;
+    height: 340px;
 
     display: flex;
     flex-direction: column;
