@@ -19,10 +19,11 @@ import { Chess } from "chess.js";
 
 export default function PgnEditor() {
     const [game, setGame] = useState(new Chess());
+    const [moveList, setMoveList] = useState([{ fen: "start" }]);
+    const [moveIndex, setMoveIndex] = useState(0);
     const [turn, setTurn] = useState("w");
     const [comment, setComment] = useState("");
     const [showHeadersForm, setShowHeadersForm] = useState(false);
-    const [moveHistory, setMoveHistory] = useState([]);
     const [boardOrientation, setBoardOrientation] = useState("white");
     const [headersData, setHeadersData] = useState({
         event: "",
@@ -83,8 +84,11 @@ export default function PgnEditor() {
                                 setTurn={setTurn}
                                 comment={comment}
                                 setComment={setComment}
-                                setMoveHistory={setMoveHistory}
                                 boardOrientation={boardOrientation}
+                                moveList={moveList}
+                                setMoveList={setMoveList}
+                                moveIndex={moveIndex}
+                                setMoveIndex={setMoveIndex}
                             />
                             <TextArea
                                 setComment={setComment}
@@ -104,9 +108,11 @@ export default function PgnEditor() {
                         />
                     ) : (
                         <MoveList
-                            moveHistory={moveHistory}
                             setBoardOrientation={setBoardOrientation}
                             boardOrientation={boardOrientation}
+                            setMoveIndex={setMoveIndex}
+                            moveIndex={moveIndex}
+                            moveList={moveList}
                         />
                     )}
                     <ButtonsContainer>
