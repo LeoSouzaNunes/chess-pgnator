@@ -1,16 +1,15 @@
 import { Chessboard } from "react-chessboard";
-import { Chess } from "chess.js";
-import { useState } from "react";
 import { style } from "./styles";
 
 export default function ChessBoardComponent({
+    game,
+    setGame,
     setTurn,
     setMoveHistory,
     setComment,
     comment,
     boardOrientation,
 }) {
-    const [game, setGame] = useState(new Chess());
     function safeGameMutate(modify) {
         setGame((g) => {
             const actualPosition = { ...g };
@@ -28,6 +27,7 @@ export default function ChessBoardComponent({
             move = game.move({
                 from: sourceSquare,
                 to: targetSquare,
+                promotion: "q",
             });
         });
 
@@ -39,31 +39,6 @@ export default function ChessBoardComponent({
         setTurn(game.turn());
         return true;
     }
-
-    function returnFormattedOutput() {
-        game.header(
-            "Event",
-            "",
-            "Site",
-            "",
-            "Date",
-            "",
-            "Round",
-            "",
-            "White",
-            "",
-            "Black",
-            "",
-            "Result",
-            ""
-        );
-        const copyright = "\n%Created by ChessPGNator, a free PGN editor";
-        const pgnOutput = game.pgn();
-
-        const output = pgnOutput + copyright;
-        console.log(output);
-    }
-
     return (
         <Chessboard
             position={game.fen()}

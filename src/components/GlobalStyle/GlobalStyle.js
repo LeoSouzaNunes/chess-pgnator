@@ -25,6 +25,11 @@ body{
 #root{
     padding: 30px 100px;
 }
+
+:disabled{
+    opacity:0.7;
+}
+
 `;
 
 export default GlobalStyle;

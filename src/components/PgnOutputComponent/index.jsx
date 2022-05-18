@@ -1,0 +1,38 @@
+import {
+    PgnOutputContainer,
+    InputReadOnly,
+    ButtonsContainer,
+    Button,
+} from "./styles";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useState } from "react";
+
+export default function PgnOutputComponent({ outputData }) {
+    const [copied, setCopied] = useState(false);
+
+    return (
+        <PgnOutputContainer>
+            <h1>Output</h1>
+            <InputReadOnly type="text" value={outputData} readOnly />
+            <ButtonsContainer>
+                <CopyToClipboard
+                    text={outputData}
+                    onCopy={() => {
+                        setCopied(true);
+                    }}
+                >
+                    <Button>{!copied ? "Copy" : "Copied!"}</Button>
+                </CopyToClipboard>
+                <a
+                    href={
+                        "data:application/vnd.chess-pgn," +
+                        encodeURIComponent(outputData)
+                    }
+                    download={`chesspgnator_${Date.now()}.pgn`}
+                >
+                    <Button>Download</Button>
+                </a>
+            </ButtonsContainer>
+        </PgnOutputContainer>
+    );
+}

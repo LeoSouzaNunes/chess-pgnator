@@ -19,6 +19,7 @@ const Input = styled.input`
     padding: 5px 5px;
     background-color: #f1e4d3;
     color: #2d2424;
+    font-weight: 700;
 
     border-radius: 3px;
     border-style: none;
@@ -34,4 +35,27 @@ const Input = styled.input`
     }
 `;
 
-export { Container, Input };
+const SelectResult = styled.select`
+    width: 100%;
+
+    padding: 5px 5px;
+    background-color: #f1e4d3;
+    color: #2d2424;
+
+    border-radius: 3px;
+    border-style: none;
+
+    :focus {
+        outline: none;
+        border: 1.5px solid #e85640;
+    }
+`;
+const DateContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 5px;
+`;
+
+export { Container, Input, SelectResult, DateContainer };

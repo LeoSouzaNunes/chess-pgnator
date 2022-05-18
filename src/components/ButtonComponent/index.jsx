@@ -1,13 +1,13 @@
 import { Button } from "./styles";
 
-export default function MoveListButton({ show }) {
+export default function ButtonComponent({ text, setValue, value }) {
     return (
         <Button
             onClick={() => {
-                show(false);
+                setValue(value);
             }}
         >
-            Move list
+            {text}
         </Button>
     );
 }
