@@ -24,6 +24,7 @@ export default function ChessBoardComponent({
             setMoveIndex(moves.length - 1);
             setMoveList(moves);
             game.undo();
+            setTurn(game.turn());
             setDeleteLastMove(false);
             setShowLastMoveOptions(false);
         }
