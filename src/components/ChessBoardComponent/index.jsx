@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Chessboard } from "react-chessboard";
 import { style } from "./styles";
 
@@ -12,7 +13,22 @@ export default function ChessBoardComponent({
     setMoveList,
     moveIndex,
     setMoveIndex,
+    deleteLastMove,
+    setDeleteLastMove,
+    setShowLastMoveOptions,
 }) {
+    useEffect(() => {
+        if (deleteLastMove) {
+            let moves = [...moveList];
+            moves.pop();
+            setMoveIndex(moves.length - 1);
+            setMoveList(moves);
+            game.undo();
+            setDeleteLastMove(false);
+            setShowLastMoveOptions(false);
+        }
+    }, [deleteLastMove]);
+
     function safeGameMutate(modify) {
         setGame((g) => {
             const actualPosition = { ...g };
