@@ -12,6 +12,7 @@ export default function TextArea({ setComment, comment, disable }) {
             onChange={handleChange}
             placeholder="comment/annotation"
             disabled={disable}
+            maxLength="170"
         ></Text>
     );
 }
