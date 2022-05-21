@@ -16,8 +16,7 @@ export default function Home() {
                         Translate your favorite annotated chess games to PGN
                         format
                         <br />
-                        with chess-pgnator a free PGN editor where you can
-                        create
+                        with ChessPGNator a free PGN editor where you can create
                         <br />
                         your chess studies.
                         <br />
