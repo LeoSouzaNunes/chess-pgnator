@@ -12,3 +12,4 @@ RUN mv build/* /var/www/html
 WORKDIR /
 
 RUN rm -rf /app
+
