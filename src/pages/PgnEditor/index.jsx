@@ -38,6 +38,8 @@ export default function PgnEditor() {
     });
     const [getPgnOutput, setGetPgnOutput] = useState(false);
     const [outputData, setOutputData] = useState("");
+    const [deleteLastMove, setDeleteLastMove] = useState(false);
+    const [showLastMoveOptions, setShowLastMoveOptions] = useState(false);
 
     function returnFormattedOutput(headersData) {
         const headers = createHeadersDefaultValue({ ...headersData });
@@ -89,6 +91,9 @@ export default function PgnEditor() {
                                 setMoveList={setMoveList}
                                 moveIndex={moveIndex}
                                 setMoveIndex={setMoveIndex}
+                                deleteLastMove={deleteLastMove}
+                                setDeleteLastMove={setDeleteLastMove}
+                                setShowLastMoveOptions={setShowLastMoveOptions}
                             />
                             <TextArea
                                 setComment={setComment}
@@ -113,6 +118,9 @@ export default function PgnEditor() {
                             setMoveIndex={setMoveIndex}
                             moveIndex={moveIndex}
                             moveList={moveList}
+                            setDeleteLastMove={setDeleteLastMove}
+                            showLastMoveOptions={showLastMoveOptions}
+                            setShowLastMoveOptions={setShowLastMoveOptions}
                         />
                     )}
                     <ButtonsContainer>

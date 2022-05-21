@@ -62,6 +62,10 @@ const ButtonsContainer = styled.div`
     a {
         text-decoration: none;
     }
+
+    :last-child {
+        margin-left: auto;
+    }
 `;
 
 const Button = styled.button`

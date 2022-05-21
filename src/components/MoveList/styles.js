@@ -21,7 +21,7 @@ const MovesContainer = styled.ul`
 
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 
     position: relative;
     overflow: scroll;
@@ -29,7 +29,7 @@ const MovesContainer = styled.ul`
 
 const Move = styled.li`
     width: 100%;
-    height: 15px;
+    height: 20px;
 
     display: flex;
     justify-content: space-around;
@@ -66,6 +66,14 @@ const ControlPanel = styled.li`
     background-color: #2d2424;
 `;
 
+const DeleteMove = styled.div`
+    display: ${(props) => (props.show ? "flex" : "none")};
+    justify-content: center;
+    align-items: center;
+
+    gap: 3px;
+`;
+
 const styles = {
     color: "#f1e4d3",
     transition: ".3s",
@@ -76,4 +84,11 @@ const styles = {
     },
 };
 
-export { ListContainer, Move, ControlPanel, styles, MovesContainer };
+export {
+    ListContainer,
+    Move,
+    ControlPanel,
+    styles,
+    MovesContainer,
+    DeleteMove,
+};

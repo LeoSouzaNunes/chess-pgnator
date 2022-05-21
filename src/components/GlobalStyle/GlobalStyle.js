@@ -30,6 +30,11 @@ body{
     opacity:0.7;
 }
 
+b {
+            cursor: pointer;
+            color: #e85640;
+}
+
 `;
 
 export default GlobalStyle;

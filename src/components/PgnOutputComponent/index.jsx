@@ -28,7 +28,7 @@ export default function PgnOutputComponent({ outputData }) {
                         "data:application/vnd.chess-pgn," +
                         encodeURIComponent(outputData)
                     }
-                    download={`chesspgnator_${Date.now()}.pgn`}
+                    download={`ChessPGNator_game.pgn`}
                 >
                     <Button>Download</Button>
                 </a>
