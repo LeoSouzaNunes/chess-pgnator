@@ -1,5 +1,5 @@
 import { HomeContainer, MainContentContainer, MainSection } from "./styles";
-import { Header, TryNowButton } from "../../components";
+import { Header, TryNowButton, Footer } from "../../components";
 
 export default function Home() {
     return (
@@ -23,6 +23,7 @@ export default function Home() {
                     </p>
                 </MainSection>
                 <TryNowButton none={false} />
+                <Footer />
             </MainContentContainer>
         </HomeContainer>
     );

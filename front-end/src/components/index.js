@@ -8,6 +8,7 @@ import MoveList from "./MoveList";
 import HeadersForm from "./HeadersForm";
 import PgnOutputComponent from "./PgnOutputComponent";
 import ButtonComponent from "./ButtonComponent";
+import Footer from "./Footer";
 
 export {
     GlobalStyle,
@@ -20,4 +21,5 @@ export {
     HeadersForm,
     PgnOutputComponent,
     ButtonComponent,
+    Footer,
 };

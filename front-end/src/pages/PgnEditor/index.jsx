@@ -13,6 +13,7 @@ import {
     HeadersForm,
     PgnOutputComponent,
     ButtonComponent,
+    Footer,
 } from "../../components";
 import { useEffect, useState } from "react";
 import { Chess } from "chess.js";
@@ -153,6 +154,7 @@ export default function PgnEditor() {
                         )}
                     </ButtonsContainer>
                 </SettingsContainer>
+                <Footer />
             </EditorContainer>
         </Container>
     );
