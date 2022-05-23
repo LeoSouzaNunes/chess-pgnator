@@ -74,11 +74,19 @@ export default function PgnEditor() {
 
     return (
         <Container>
-            <Header content={"space-between"} none={true} />
+            <Header none={true} />
             <EditorContainer>
                 <div>
                     {outputData && getPgnOutput ? (
-                        <PgnOutputComponent outputData={outputData} />
+                        <PgnOutputComponent
+                            game={game}
+                            setMoveList={setMoveList}
+                            moveList={moveList}
+                            setMoveIndex={setMoveIndex}
+                            setGetPgnOutput={setGetPgnOutput}
+                            outputData={outputData}
+                            setTurn={setTurn}
+                        />
                     ) : (
                         <>
                             <ChessBoardComponent
@@ -154,8 +162,8 @@ export default function PgnEditor() {
                         )}
                     </ButtonsContainer>
                 </SettingsContainer>
-                <Footer />
             </EditorContainer>
+            <Footer />
         </Container>
     );
 }

@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 const Container = styled.header`
     display: flex;
-    justify-content: ${(props) => props.justify};
+    justify-content: space-between;
     align-items: center;
+
+    padding-top: 25px;
 `;
 
 const ButtonsContainer = styled.nav`

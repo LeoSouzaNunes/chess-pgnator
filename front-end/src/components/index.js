@@ -9,6 +9,7 @@ import HeadersForm from "./HeadersForm";
 import PgnOutputComponent from "./PgnOutputComponent";
 import ButtonComponent from "./ButtonComponent";
 import Footer from "./Footer";
+import ClientEmail from "./ClientEmail";
 
 export {
     GlobalStyle,
@@ -22,4 +23,5 @@ export {
     PgnOutputComponent,
     ButtonComponent,
     Footer,
+    ClientEmail,
 };

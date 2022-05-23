@@ -4,7 +4,7 @@ import { Header, TryNowButton, Footer } from "../../components";
 export default function Home() {
     return (
         <HomeContainer>
-            <Header content={"space-between"} none={false} />
+            <Header none={false} />
             <MainContentContainer>
                 <MainSection>
                     <h1>
@@ -23,8 +23,8 @@ export default function Home() {
                     </p>
                 </MainSection>
                 <TryNowButton none={false} />
-                <Footer />
             </MainContentContainer>
+            <Footer />
         </HomeContainer>
     );
 }

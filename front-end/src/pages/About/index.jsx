@@ -6,11 +6,14 @@ export default function About() {
         <Container>
             <Header content={"space-between"} none={false} />
             <MainContainer>
-                <h1>Your Favorite PGN Tool!</h1>
+                <h1>
+                    Your Favorite <b>PGN</b> Tool!
+                </h1>
 
                 <article>
                     <h2>
-                        What is a PGN editor and how it can be useful for me?
+                        What is a <b>PGN</b> editor and how it can be useful for
+                        me?
                     </h2>
                     <p>
                         A PGN editor is a software app where you can edit and
@@ -28,7 +31,9 @@ export default function About() {
                 </article>
 
                 <article>
-                    <h2>What can I do on ChessPGNator?</h2>
+                    <h2>
+                        What can I do on Chess<b>PGN</b>ator?
+                    </h2>
                     <ul>
                         <li>
                             <p>
@@ -70,6 +75,7 @@ export default function About() {
                     </ul>
                 </article>
             </MainContainer>
+            <Footer />
         </Container>
     );
 }

@@ -6,7 +6,7 @@ const Container = styled.div`
     flex-direction: column;
     width: 100%;
 
-    gap: 70px;
+    min-height: 100vh;
 `;
 
 const MainContainer = styled.main`
@@ -15,6 +15,7 @@ const MainContainer = styled.main`
     gap: 40px;
 
     width: 100%;
+    padding: 70px 0px;
 
     background-image: url(${chessImage});
     background-repeat: no-repeat;
