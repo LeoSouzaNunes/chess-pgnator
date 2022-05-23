@@ -1,8 +1,8 @@
 version: "3"
 services:
-    chess-pgnator:
+    chesspgnator:
         build: ./front-end
-        container_name: chess-pgnator
+        container_name: chesspgnator
         volumes:
             - build_react:/var/www/html
 
@@ -14,7 +14,7 @@ services:
         volumes:
             - build_react:/var/www/html
         depends_on:
-            - chess-pgnator
+            - chesspgnator
 
 volumes:
     build_react:
