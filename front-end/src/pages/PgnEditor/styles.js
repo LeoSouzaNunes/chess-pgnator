@@ -4,14 +4,14 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-
-    gap: 70px;
+    min-height: 100vh;
 `;
 
 const EditorContainer = styled.div`
     display: flex;
     justify-content: center;
     gap: 20px;
+    padding-top: 70px;
 
     width: 100%;
 `;

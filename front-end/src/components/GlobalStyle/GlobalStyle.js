@@ -23,7 +23,7 @@ body{
 }
 
 #root{
-    padding: 30px 100px;
+    padding: 0px 90px;
 }
 
 :disabled{
@@ -31,7 +31,6 @@ body{
 }
 
 b {
-            cursor: pointer;
             color: #e85640;
 }
 
@@ -44,7 +43,9 @@ b {
 *{
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-} 
+}
+
+
 
 `;
 

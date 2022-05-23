@@ -1,10 +1,10 @@
 import { HomeContainer, MainContentContainer, MainSection } from "./styles";
-import { Header, TryNowButton } from "../../components";
+import { Header, TryNowButton, Footer } from "../../components";
 
 export default function Home() {
     return (
         <HomeContainer>
-            <Header content={"space-between"} none={false} />
+            <Header none={false} />
             <MainContentContainer>
                 <MainSection>
                     <h1>
@@ -24,6 +24,7 @@ export default function Home() {
                 </MainSection>
                 <TryNowButton none={false} />
             </MainContentContainer>
+            <Footer />
         </HomeContainer>
     );
 }

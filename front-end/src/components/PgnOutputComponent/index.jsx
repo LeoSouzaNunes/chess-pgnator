@@ -7,8 +7,25 @@ import {
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useState } from "react";
 
-export default function PgnOutputComponent({ outputData }) {
+export default function PgnOutputComponent({
+    outputData,
+    setGetPgnOutput,
+    game,
+    setMoveList,
+    setMoveIndex,
+    setTurn,
+    moveList,
+}) {
     const [copied, setCopied] = useState(false);
+
+    function handleReset() {
+        if (moveList.length <= 1) return;
+        game.reset();
+        setMoveList([{ fen: "start" }]);
+        setMoveIndex(0);
+        setTurn("w");
+        setGetPgnOutput(false);
+    }
 
     return (
         <PgnOutputContainer>
@@ -32,6 +49,9 @@ export default function PgnOutputComponent({ outputData }) {
                 >
                     <Button>Download</Button>
                 </a>
+                <Button disabled={moveList.length <= 1} onClick={handleReset}>
+                    Reset
+                </Button>
             </ButtonsContainer>
         </PgnOutputContainer>
     );

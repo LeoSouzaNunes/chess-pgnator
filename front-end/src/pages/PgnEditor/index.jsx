@@ -13,6 +13,7 @@ import {
     HeadersForm,
     PgnOutputComponent,
     ButtonComponent,
+    Footer,
 } from "../../components";
 import { useEffect, useState } from "react";
 import { Chess } from "chess.js";
@@ -73,11 +74,19 @@ export default function PgnEditor() {
 
     return (
         <Container>
-            <Header content={"center"} none={true} />
+            <Header none={true} />
             <EditorContainer>
                 <div>
                     {outputData && getPgnOutput ? (
-                        <PgnOutputComponent outputData={outputData} />
+                        <PgnOutputComponent
+                            game={game}
+                            setMoveList={setMoveList}
+                            moveList={moveList}
+                            setMoveIndex={setMoveIndex}
+                            setGetPgnOutput={setGetPgnOutput}
+                            outputData={outputData}
+                            setTurn={setTurn}
+                        />
                     ) : (
                         <>
                             <ChessBoardComponent
@@ -154,6 +163,7 @@ export default function PgnEditor() {
                     </ButtonsContainer>
                 </SettingsContainer>
             </EditorContainer>
+            <Footer />
         </Container>
     );
 }

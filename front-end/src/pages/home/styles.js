@@ -4,8 +4,7 @@ const HomeContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-
-    gap: 200px;
+    min-height: 100vh;
 `;
 
 const MainSection = styled.main`
@@ -39,6 +38,7 @@ const MainContentContainer = styled.div`
     align-items: flex-start;
 
     gap: 40px;
+    padding-top: 210px;
 `;
 
 const TryNowButton = styled.button`

@@ -25,6 +25,10 @@ const MovesContainer = styled.ul`
 
     position: relative;
     overflow: scroll;
+
+    b {
+        cursor: pointer;
+    }
 `;
 
 const Move = styled.li`
