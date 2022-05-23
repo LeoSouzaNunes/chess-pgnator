@@ -6,4 +6,12 @@ const Container = styled.header`
     align-items: center;
 `;
 
-export { Container };
+const ButtonsContainer = styled.nav`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    gap: 20px;
+`;
+
+export { Container, ButtonsContainer };

@@ -74,7 +74,7 @@ export default function PgnEditor() {
 
     return (
         <Container>
-            <Header content={"center"} none={true} />
+            <Header content={"space-between"} none={true} />
             <EditorContainer>
                 <div>
                     {outputData && getPgnOutput ? (
