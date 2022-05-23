@@ -51,6 +51,7 @@ export default function ClientEmail() {
                 name="user_name"
                 onChange={handleChange}
                 placeholder="Name"
+                required
             />
 
             <Input
@@ -59,6 +60,7 @@ export default function ClientEmail() {
                 name="user_email"
                 onChange={handleChange}
                 placeholder="Email"
+                required
             />
 
             <TextArea
@@ -66,6 +68,7 @@ export default function ClientEmail() {
                 name="message"
                 onChange={handleChange}
                 placeholder="Message"
+                required
             />
             <Button type="submit">Send</Button>
         </Form>
