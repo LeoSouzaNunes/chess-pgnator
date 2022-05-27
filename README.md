@@ -32,7 +32,7 @@ The following steps will help you to run this project in development environment
   
 1. Clone this repository
 
-2. Go to the front-end folder in our terminal
+2. Go to the front-end folder in your terminal
 ```bash
 cd front-end
 ```
