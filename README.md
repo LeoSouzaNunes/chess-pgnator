@@ -15,8 +15,6 @@ The following features are available:
   * Check out the PGN output in real time
   * Copy the PGN output
   * Download the pgn file
-  
-As a future feature you will be able to remove and edit posted trades.
 
 ## Technologies
 
