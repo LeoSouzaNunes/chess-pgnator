@@ -1,6 +1,6 @@
 ## Introduction
 
-A chess pgn editor web site where you can create you own pgn files from real games. You can try it out [here]( http://ec2-34-228-15-88.compute-1.amazonaws.com/ ).
+A chess pgn editor web site where you can create you own pgn files from real games. You can try it out [here]( http://www.chesspgnator.com).
 
 ## About
 A PGN editor is a software app where you can edit and create your Portable Game Notation files, you can use it as tool to rewrite your chess games to a highly used format on the most popular chess softwares such as Chess.com, Lichess.org, Chessbase and so on.
