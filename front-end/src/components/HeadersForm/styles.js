@@ -23,6 +23,7 @@ const Input = styled.input`
 
     border-radius: 3px;
     border-style: none;
+    border: 1.5px solid transparent;
 
     ::placeholder {
         color: #2d2424;

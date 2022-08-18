@@ -36,6 +36,8 @@ const Input = styled.input`
     padding: 10px 5px;
     border-radius: 3px;
     border-style: none;
+    border: 1.5px solid transparent;
+
     ::placeholder {
         font-weight: 700;
         color: #2d2424;
@@ -59,6 +61,7 @@ const TextArea = styled.textarea`
     resize: none;
     border-radius: 3px;
     border-style: none;
+    border: 1.5px solid transparent;
 
     ::placeholder {
         font-weight: 700;

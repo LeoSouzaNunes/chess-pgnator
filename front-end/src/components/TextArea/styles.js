@@ -13,6 +13,7 @@ const Text = styled.textarea`
     resize: none;
     border-radius: 3px;
     border-style: none;
+    border: 1.5px solid transparent;
 
     ::placeholder {
         font-weight: 700;
